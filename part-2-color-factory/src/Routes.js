@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Switch, Route, Redirect, BrowserRouter } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 
 import ColorList from "./ColorList";
 import Color from "./Color";
@@ -33,21 +33,19 @@ const Routes = () => {
   };
 
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/colors">
-          <ColorList colors={colors} />
-        </Route>
-        <Route exact path="/colors/new">
-          <NewColorForm addColor={handleAddColor} />
-        </Route>
-        {/* Renders component from showCurrColor function */}
-        <Route path="/colors/:color" render={showCurrColor} />
+    <Switch>
+      <Route exact path="/colors">
+        <ColorList colors={colors} />
+      </Route>
+      <Route exact path="/colors/new">
+        <NewColorForm addColor={handleAddColor} />
+      </Route>
+      {/* Renders component from showCurrColor function */}
+      <Route path="/colors/:color" render={showCurrColor} />
 
-        {/* redirects to homepage if invalid url */}
-        <Redirect to="/colors" />
-      </Switch>
-    </BrowserRouter>
+      {/* redirects to homepage if invalid url */}
+      <Redirect to="/colors" />
+    </Switch>
   );
 };
 
