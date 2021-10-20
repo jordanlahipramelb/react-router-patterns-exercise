@@ -19,6 +19,7 @@ const Routes = () => {
   );
 
   // adds new color to colors state
+  // function is passed down to NewColorForm
   const handleAddColor = (newColorObj) => {
     setColors((previousColors) => ({ ...previousColors, ...newColorObj }));
   };
